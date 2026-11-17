@@ -70,7 +70,19 @@ public class SortByPolarAngle {
      * degrees. In that half-circle, "left turn" always means "bigger angle".
      */
     public static int compareByPolarAngle(Point2D p, Point2D a, Point2D b) {
-        // TODO 2a: replace this line with your four steps
+        int turn = Point2D.ccw(p,a,b);
+        if(turn > 0){
+            return -1;
+        }
+        if(turn < 0){
+            return 1;
+        }
+        if(p.distanceSquaredTo(a) > p.distanceSquaredTo(b)){
+            return 1;
+        }
+        if(p.distanceSquaredTo(b) > p.distanceSquaredTo(a)){
+            return -1;
+        }
         return 0;
     }
 
