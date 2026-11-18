@@ -120,9 +120,15 @@ public class SortByPolarAngle {
      */
     public static void insertionSortByPolarAngle(Point2D[] pts, Point2D p) {
         // TODO 2b: write insertion sort here
-
-
-
+        for(int i = 1; i < pts.length; i++){
+            int j = i;
+            while (j >= 1 && compareByPolarAngle(p,pts[j],pts[j-1]) < 0){
+                Point2D temp = pts[j];
+                pts[j] = pts[j-1];
+                pts[j-1] = temp;
+                j--;
+            }
+        }
     }
 
     /** Swap pts[i] and pts[j]. (Given -- use it!) */
